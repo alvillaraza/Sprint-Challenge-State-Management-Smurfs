@@ -1,23 +1,19 @@
-export const initialState = [
-    {
-        name: "Brainey",
-        age: 200,
-        height: "5cm",
-        id: 0
-    }
-];
-
-export const smurfReducer = (state = initialState, action) => {
+export const smurfReducer = (state, action) => {
     switch (action.type) {
-        case 'GET_SMURFS':
-            return {
+        case 'ADD_SMURFS':
+            return [
                 ...state,
-                // {
-                //     ...state.name,
-                // }
-            };
+                {
+                    name: action.payload,
+                    age: action.payload,
+                    height: action.payload,
+                    id: Date.now()
+                }
+            ];
+        default: return state;  
         
         
             
     }
 }
+
