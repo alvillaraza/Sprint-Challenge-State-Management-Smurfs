@@ -11,9 +11,7 @@ export const smurfReducer = (state, action) => {
                 }
             ];
         default: return state;  
-        
-        
-            
+                      
     }
 }
 
