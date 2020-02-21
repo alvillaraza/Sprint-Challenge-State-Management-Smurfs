@@ -16,22 +16,29 @@ function App() {
       .catch(err => console.log(err));
   }, []);
 
-  //add function to add data
- 
-  
- 
-  
+
+  const addSmurf = (item) => {
+    setSmurf([...smurfs, item])
+    console.log('item!', item);
+    axios.post('http://localhost:3333/smurfs', item)
+      .then(res => {
+      console.log('response', res) 
+      })
+      .catch(err => {
+      console.log('error', err)
+    })
+  };
 
   return (
     <div className="App">
       {/* {console.log(data)} */}
-      <SmurfContext.Provider value={{ smurfs, setSmurf }}>
+      <SmurfContext.Provider value={{ smurfs, addSmurf }}>
         {/* {console.log('smurf', smurf)} */}
         
 
         <h1>SMURFS Village</h1>
         <Smurfs />
-        <Form />
+        <Form addSmurf={addSmurf} />
        
 
 

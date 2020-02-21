@@ -8,8 +8,8 @@ const Smurfs = () => {
     return (
         <div>
             {console.log(smurfs.smurfs)}
-            {smurfs.smurfs.map((item, i) => ((
-                <Smurf key = {item.i} item={item} />
+            {smurfs.smurfs && smurfs.smurfs.map((item) => ((
+                <Smurf key={item.id} item={item} />
             )))}
         </div>
     )
